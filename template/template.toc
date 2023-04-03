@@ -1,0 +1,4 @@
+\beamer@sectionintoc {1}{Blah}{4}{0}{1}
+\beamer@sectionintoc {2}{Another}{6}{0}{2}
+\beamer@subsectionintoc {2}{1}{a}{7}{0}{2}
+\beamer@subsectionintoc {2}{2}{aaa}{7}{0}{2}

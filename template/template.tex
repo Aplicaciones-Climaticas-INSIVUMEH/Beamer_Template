@@ -1,0 +1,156 @@
+\documentclass{beamer}
+\usepackage{tikz}
+
+\definecolor{main_color}{RGB}{55,55,55}
+
+% setting some colors for the theme
+\setbeamercolor{palette primary}{fg=main_color,bg=white}
+\setbeamercolor{palette secondary}{fg=main_color,bg=white}
+\setbeamercolor{structure}{fg=main_color,bg=white}
+\setbeamercolor{title in head/foot}{fg=black,bg=white}
+\setbeamercolor{date in head/foot}{fg=gray,bg=white}
+
+\setbeamercolor{mycolor}{fg=blue,bg=green}
+
+% definition of the footline template
+\defbeamertemplate*{footline}{mytheme}{%
+  \leavevmode%
+  \hbox{\begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm]{title in head/foot}%
+    \makebox[2em][l]{{\usebeamerfont{title in head/foot}\textcolor{main_color}{\insertframenumber}}}%
+    {\usebeamercolor{title in head/foot}\insertsectionhead}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate%
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.1\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm,right]{title in head/foot}%
+    % \includegraphics[width=.2\paperwidth,height=2.5ex,keepaspectratio]{gemalto}\hspace*{2em}%
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+\AtBeginSection[]{
+  \begin{frame}[plain]
+  \vfill
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center,rounded=true]{title}
+    \usebeamerfont{title}\insertsectionhead\par%
+  \end{beamercolorbox}
+  \vfill
+  \end{frame}
+}
+
+% definition of the title page template
+\defbeamertemplate*{title page}{mytheme}
+{%
+  \begin{tikzpicture}[remember picture,overlay]
+  \filldraw[main_color]
+    (current page.north west) --
+    ([yshift=-2cm]current page.north west) --
+    ([xshift=-2cm,yshift=-2cm]current page.north east) {[rounded corners=15pt]--
+    ([xshift=-2cm,yshift=3cm]current page.south east)} --
+    ([yshift=3cm]current page.south west) --
+    (current page.south west) --
+    (current page.south east) --
+    (current page.north east) -- cycle
+    ;
+  \node[text=main_color,anchor=south west,font=\sffamily\LARGE,text width=.55\paperwidth] 
+  at ([xshift=10pt,yshift=-1cm]current page.west)
+  (title)
+  {\raggedright\inserttitle};   
+  % \node[anchor=west]
+  % at (title.east)
+  % {\includegraphics[height=0.75cm]{gemalto}};
+  \node[text=white,font=\large\sffamily,anchor=south west]
+  at ([xshift=30pt,yshift=0.5cm]current page.south west)
+  (date)
+  {\insertdate};
+  \node[text=white,font=\large\sffamily,anchor=south west]
+  at ([yshift=5pt]date.north west)
+  (author)
+  {\insertauthor};
+  \end{tikzpicture}%
+}
+
+\defbeamertemplate*{section page}{mytheme}
+{%
+  \begin{tikzpicture}[remember picture,overlay]
+  \filldraw[main_color]
+    (current page.north west) --
+    ([yshift=-2cm]current page.north west) --
+    ([xshift=-2cm,yshift=-2cm]current page.north east) {[rounded corners=15pt]--
+    ([xshift=-2cm,yshift=3cm]current page.south east)} --
+    ([yshift=3cm]current page.south west) --
+    (current page.south west) --
+    (current page.south east) --
+    (current page.north east) -- cycle
+    ;
+  \node[text=main_color,anchor=south west,font=\sffamily\LARGE,text width=.55\paperwidth] 
+  at ([xshift=10pt,yshift=-1cm]current page.west)
+  (title)
+  {\raggedright\inserttitle};   
+  % \node[anchor=west]
+  % at (title.east)
+  % {\includegraphics[height=0.75cm]{gemalto}};
+  \node[text=white,font=\large\sffamily,anchor=south west]
+  at ([xshift=30pt,yshift=0.5cm]current page.south west)
+  (date)
+  {\insertdate};
+  \node[text=white,font=\large\sffamily,anchor=south west]
+  at ([yshift=5pt]date.north west)
+  (author)
+  {\insertauthor};
+  \end{tikzpicture}%
+}
+
+% remove navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+\title[The short title]{The title of the presentation}
+\author{The Author}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}[plain]
+\maketitle
+\end{frame}
+
+\begin{frame}{Contenido}
+  \tableofcontents
+\end{frame}
+
+\begin{frame}
+  \frametitle{A test frame title}
+  \framesubtitle{A test frame subtitle}
+  \begin{itemize}
+    \item This is some item.
+    \item Another item.
+    \begin{itemize}
+      \item A subitem.
+      \item Another subitem.
+    \end{itemize}
+    \item Yet another item.
+  \end{itemize}
+
+\end{frame}
+
+\section{Blah}
+
+\begin{frame}{a}{b}
+  Buajaja
+
+\end{frame}
+
+\section{Another}
+\subsection{a}
+\begin{frame}
+  \frametitle{hello}
+
+  dfjad
+  \subsection{aaa}
+  dfa
+\end{frame}
+
+
+
+\end{document}
